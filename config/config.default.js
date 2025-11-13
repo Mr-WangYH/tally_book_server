@@ -2,7 +2,7 @@
  * @Author: WangYunHong 18788604629@163.com
  * @Date: 2025-10-30 11:12:52
  * @LastEditors: WangYunHong 18788604629@163.com
- * @LastEditTime: 2025-10-31 17:27:52
+ * @LastEditTime: 2025-11-03 15:00:25
  * @FilePath: /tally_book_server/config/config.default.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -42,6 +42,16 @@ module.exports = appInfo => {
     secret: 'Nick',
   };
 
+  config.multipart = {
+    mode: 'file',
+  };
+
+  config.cors = {
+    origin: '*', // 允许所有跨域访问
+    credentials: true, // 允许 Cookie 跨域跨域
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  };
+
   exports.mysql = {
     // 单数据库信息配置
     client: {
@@ -65,6 +75,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    uploadDir: 'app/public/upload',
   };
 
   return {
